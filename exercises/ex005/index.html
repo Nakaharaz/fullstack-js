@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Measurement converter! | Exercise 005</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <main>
+        <section>
+          <h1>Measurement converter:</h1>
+          <p>Input a value in meters, then select for which unit of measurement you want to convert</p>
+          <form onsubmit="convert(event)">
+            <label for="meters">Value:</label>
+            <input
+              type="number"
+              name="meters"
+              id="meters"
+              required
+            />
+            <label for="unitMeansurement">Unit of measurement</label>
+            <select name="unitMeansurement" id="unitMeansurement">
+              <option value="mm">Millimeter</option>
+              <option value="cm">Centimeter</option>
+              <option value="dm">Decimeter</option>
+              <option value="dam">Decameter</option>
+              <option value="hm">Hectometer</option>
+              <option value="km">Kilometer</option>
+            </select>
+            <input type="submit" value="Convert" />
+          </form>
+        </section>
+        <section id="result"></section>
+      </main>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

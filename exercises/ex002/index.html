@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Básicos | Exercício 002</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Calculadora básica</h1>
+        <form onsubmit="calculate(event)">
+          <label for="firstNum">Primeiro número:</label>
+          <input type="number" name="firstNum" id="firstNum" required/>
+          <label for="secondNum">Segundo número:</label>
+          <input type="number" name="secondNum" id="secondNum" required/>
+          <input type="submit" value="Calcular" />
+        </form>
+      </section>
+      <section id="result"></section>
+    </main>
+    <script lang="javascript">
+
+      const inputFirstNum = document.getElementById("firstNum");
+      const inputSecondNum = document.getElementById("secondNum");
+      const result = document.getElementById('result');
+
+      function calculate(event) {
+        event.preventDefault();
+
+        let firstNum = inputFirstNum.value;
+        let secondNum = inputSecondNum.value;
+
+        let sum = parseFloat(firstNum) + parseFloat(secondNum);
+        let sub = parseFloat(firstNum) - parseFloat(secondNum);
+        let power = parseFloat(firstNum) * parseFloat(secondNum);
+        let divison = parseFloat(firstNum) / parseFloat(secondNum);
+
+        result.innerHTML = `
+        <section>
+          <h1>Cadastro de cadetes</h1>
+          <h3>Confirma cadastro?</h3>
+          <p>
+            <ul>
+              <li>Somatória: ${sum}</li>
+              <li>Subtração: ${sub}</li>
+              <li>Multiplicação: ${power}</li>
+              <li>Divisão: ${divison}</li>
+            </ul>
+          </p>
+        </section>`
+      }
+    </script>
+  </body>
+</html>

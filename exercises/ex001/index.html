@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de recrutas | Exercício 001</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Cadastro de cadetes</h1>
+        <form onsubmit="sendRegister(event)">
+          <label for="firstName">Primeiro nome:</label>
+          <input type="text" name="firstName" id="firstName" />
+          <label for="lastName">Sobrenome:</label>
+          <input type="text" name="lastName" id="lastName" />
+          <label for="study">Campo de estudo:</label>
+          <input type="text" name="study" id="study" />
+          <label for="birthdate">Data de nascimento:</label>
+          <input type="date" name="birthdate" id="birthdate" required/>
+          <input type="submit" value="Cadastrar">
+        </form>
+      </section>
+      <section id="result">
+
+      </section>
+    </main>
+    <script lang="javascript">
+
+      const inputFirstName = document.getElementById("firstName");
+      const inputLastName = document.getElementById("lastName");
+      const inputStudy = document.getElementById("study");
+      const inputBirthYear = document.getElementById("birthdate");
+      const currentYear = new Date().getFullYear();
+      const result = document.getElementById('result');
+
+      function sendRegister(event) {
+        event.preventDefault();
+        let birthYear = inputBirthYear.value.split('-')[0];
+        let userAge = parseInt(currentYear) - parseInt(birthYear);
+        result.innerHTML = `
+        <section>
+          <h1>Cadastro de cadetes</h1>
+          <h3>Confirma cadastro?</h3>
+          <p>
+            <ul>
+              <li>Nome: ${inputFirstName.value}</li>
+              <li>Sobrenome: ${inputLastName.value}</li>
+              <li>Campo de estudo: ${inputStudy.value}</li>
+              <li>Idade aprox: ${userAge}</li>
+            </ul>
+          </p>
+        </section>`
+      }
+    </script>
+  </body>
+</html>

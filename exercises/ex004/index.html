@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INSANE FIGHT! | Exercise 004</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <main>
+        <section>
+          <h1>INSANE FIGHT.</h1>
+          <form onsubmit="startFight(event)">
+            <div>
+              <h2>Attacker</h2>
+              <label for="attackerName">Name:</label>
+              <input
+                type="text"
+                name="attackerName"
+                id="attackerName"
+                required
+              />
+              <label for="attackPower">Attack power:</label>
+              <input
+                type="number"
+                name="attackPower"
+                id="attackPower"
+                required
+              />
+            </div>
+            <div>
+              <h2>Defender</h2>
+              <label for="defenderName">Name:</label>
+              <input
+                type="text"
+                name="defenderName"
+                id="defenderName"
+                required
+              />
+              <label for="healthPoints">Health Points:</label>
+              <input
+                type="number"
+                name="healthPoints"
+                id="healthPoints"
+                required
+              />
+              <label for="defensePower">Defense Power:</label>
+              <input
+                type="number"
+                name="defensePower"
+                id="defensePower"
+                required
+              />
+              <label for="haveAShield">Does the defender have a shield?</label>
+              <input
+                type="checkbox"
+                name="haveAShield"
+                id="haveAShield"
+              />
+            </div>
+            <input type="submit" value="Fight!" />
+          </form>
+        </section>
+        <section id="result"></section>
+      </main>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
