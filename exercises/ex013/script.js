@@ -17,8 +17,12 @@ do {
       waitlist.push(`${newPatient}`)
       break;
     case 2:
-      let removedPatient = waitlist.splice(0, 1);
-      alert(`The patient ${removedPatient} has been consulted`)
+      let removedPatient = waitlist.shift();
+      if (removedPatient) {
+        alert(`The patient ${removedPatient} has been consulted`)
+      } else {
+        alert('There is no patients here!')
+      }
       break;
 
     case 3:
