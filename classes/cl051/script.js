@@ -43,4 +43,33 @@ const orcs = characters.filter((character) => {
 
 // Reduce -> a function that transforms an array into something else(number, string, object)
 
-// 13:02
+const totalLevel = characters.reduce((accumulatedValue, character) => {
+  return accumulatedValue + character.level;
+}, 0)
+
+// In this snippet, .reduce will traverse the object and group the races into arrays, creating an array for the race if it doesn't already exist.
+const races = characters.reduce((accumulatedValue, character) => {
+  // Validate if group already exist
+  if (accumulatedValue[character.race]) {
+    accumulatedValue[character.race].push(character);
+  } else {
+    // If not exist, create with the current character inside the array
+    accumulatedValue[character.race] = [character];
+  }
+
+  return accumulatedValue;
+}, {})
+
+
+// ---------------------------------- !! --------------------------------
+
+// Sort -> Sort the items of an array, .sort changes the original array
+// To sort, the .sort() function compares 2 items in the array at a time and decides which one should comes first according to the sorting factor
+
+console.log(characters)
+
+characters.sort((a, b) => {
+  return a.name.localeCompare(b.name);
+})
+
+console.log(characters)
