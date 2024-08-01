@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cartola FC - Brazillian Soccer simulator</title>
+    <style>
+      *{
+        box-sizing: border-box;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        gap: 30px;
+      }
+
+      .form-div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .player-card {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        margin: 10px 0px;
+        border: 1px solid #00000050;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Cartola FC</h1>
+      <div class="form-div">
+        <h3>Select a player</h3>
+        <label for="player-position">Player position</label>
+        <input
+          type="text"
+          name="player-position"
+          id="player-position"
+          placeholder="Ex: attacker"
+        />
+        <label for="player-name">Player's name</label>
+        <input
+          type="text"
+          name="player-name"
+          id="player-name"
+          placeholder="Ex: John Dow"
+        />
+        <label for="player-shirtnum">Player's shirt number</label>
+        <input
+          type="text"
+          name="player-shirtnum"
+          id="player-shirtnum"
+          placeholder="Ex: 10"
+        />
+        <button onclick="selectAPlayer()">Select a player</button>
+      </div>
+      <div>
+        <h2>Selected players</h2>
+        <ul id="selected-players">
+        </ul>
+      </div>
+      <div class="form-div">
+        <h3>deselect a player</h3>
+        <label for="delete-shirtnum">Player's shirt number</label>
+        <input
+          type="text"
+          name="delete-shirtnum"
+          id="delete-shirtnum"
+          placeholder="Ex: 10"
+        />
+        <button onclick="deselectAPlayer()">Deselect a player</button>
+      </div>
+      
+    </main>
+    <script src="players.js"></script>
+  </body>
+</html>

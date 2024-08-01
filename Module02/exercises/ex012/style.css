@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #121212;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  border-radius: 13px;
+  background-color: #f2f2f2;
+  margin: 20px;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="date"] {
+  height: 44px;
+  border: 1px solid #12121250;
+  border-radius: 8px;
+  padding: 10px 5px;
+}
+
+input[type="submit"], button {
+  background-color: #035373;
+  border: 0;
+  height: 44px;
+  border-radius: 8px;
+  color: #f2f2f2;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+input[type="submit"]:hover, button:hover {
+  box-shadow: #00000030 0px 2px 2px 1px;
+  cursor: pointer;
+}
+
+button.deleteButton {
+  background-color: #f44336;
+  border: 0;
+  height: 44px;
+  border-radius: 8px;
+  color: #f2f2f2;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+div#techList {
+  display: grid;
+  column-gap: 10px;
+  row-gap: 10px;
+  grid-template-columns: auto auto auto;
+  padding-top: 20px;
+}
+
+div.techCard {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #12121250;
+  gap: 5px;
+  border-radius: 8px;
+}
+
+div.devCard {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #12121250;
+  gap: 5px;
+  border-radius: 8px;
+}
+
+div.row {
+  display: flex;
+  gap: 8px;
+}
