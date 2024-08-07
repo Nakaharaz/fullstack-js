@@ -7,14 +7,17 @@ let currentTurn = 0;
 let vBoard = [];
 
 const winningConditions = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
+  // Rows
+  [[0, 0], [0, 1], [0, 2]],
+  [[1, 0], [1, 1], [1, 2]],
+  [[2, 0], [2, 1], [2, 2]],
+  // Columns
+  [[0, 0], [1, 0], [2, 0]],
+  [[0, 1], [1, 1], [2, 1]],
+  [[0, 2], [1, 2], [2, 2]],
+  // Diagonals
+  [[0, 0], [1, 1], [2, 2]],
+  [[0, 2], [1, 1], [2, 0]]
 ];
 
 function registerPlayers() {
@@ -105,9 +108,10 @@ function squareClicks(event) {
   let col = square.dataset.region[2];
   vBoard[row][col] = currentPlayer.relatedMark;
 
-  // if (checkWin()) {
-
-  // }
+  if (checkWin()) {
+    setWin(currentPlayer);
+    return
+  }
 
   if (currentTurn >= 9) {
     setDraw();
@@ -135,8 +139,25 @@ function setDraw() {
   alert('Draw! Try again');
 }
 
-function setWinner() {
+function checkWin() {
+  for (const condition of winningConditions) {
+    const [a, b, c] = condition;
+    if (vBoard[a[0]][a[1]] && vBoard[a[0]][a[1]] === vBoard[b[0]][b[1]] && vBoard[a[0]][a[1]] === vBoard[c[0]][c[1]]) {
+      return true;
+    }
+  }
+  console.log('loose')
+  return false;
+}
 
+function setWin(player) {
+  const squareList = document.querySelectorAll('div.square');
+
+  alert(`The player ${player.name} win!`)
+
+  squareList.forEach((square) => {
+    square.removeEventListener('click', squareClicks)
+  })
 }
 
 document.getElementById('start-game').addEventListener('click', registerPlayers)
