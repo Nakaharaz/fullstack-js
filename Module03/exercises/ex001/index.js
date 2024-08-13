@@ -63,38 +63,34 @@ function calcMedian(...numbers) {
 }
 
 function calcMode(...numbers) {
-  console.log(numbers)
 
   let countedNumbers = numbers.reduce((acc, number) => {
-    console.log('Checking... ' + number)
 
-    let alreadyCheck = acc.filter(obj => obj.number === number);
+    let alreadyCheck = [];
 
-    console.log(alreadyCheck);
-    
-    if (alreadyCheck === number) {
+    if (acc.length > 0) {
+      alreadyCheck = acc.filter(obj => obj.number === number);
+    }
+
+    if (alreadyCheck.length > 0) {
       return acc;
     }
 
-    console.log('Validated ' + number)
-
     let qnt = numbers.filter((numberF) => numberF === number).length;
-
-    console.log(qnt);
 
     let obj = {
       number,
       qnt
     }
 
-    console.log({ obj })
     acc.push(obj);
 
     return acc;
   }, []);
 
+  let moreAppearances = countedNumbers.sort((a, b) => b.qnt - a.qnt)
 
-  console.log(countedNumbers)
+  alert(`The mode is: ${moreAppearances[0].number}`);
 }
 
 document.getElementById('simpleArithmeticMean').addEventListener('click', () => {
