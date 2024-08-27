@@ -3,19 +3,33 @@ const Installment = require("./Installment.js")
 class Loan {
   #creationDate
 
-  constructor(value, numberOfInstallments){
+  constructor(value, numberOfInstallments) {
     this.value = value
     this.numberOfInstallments = numberOfInstallments
     this.#creationDate = new Date()
 
-    this.installments = calculateInstallments()
+    this.installments = this.calculateInstallments()
+  }
+
+  static #basicFee = 0.13
+
+  static get basicFee() {
+    return this.#basicFee;
+  }
+
+  static set basicFee(newBasicFee) {
+    let newFeeConverted = newBasicFee.split('%')[0] / 100
+    this.#basicFee = newFeeConverted;
   }
 
   calculateInstallments() {
     const installments = []
+
     const valuePerInstallment = (this.value / this.numberOfInstallments);
-    for(let i = 0; i < this.numberOfInstallments; i++) {
-      const valueWithFee = (valuePerInstallment * Loan.basicFee) + this.valuePerInstallment
+    const feePerMonth = 1 - (Loan.#basicFee / 12);
+
+    for (let i = 0; i < this.numberOfInstallments; i++) {
+      const valueWithFee = (valuePerInstallment / feePerMonth).toPrecision(4)
       const currentInstallment = new Installment(valueWithFee, (i + 1))
       installments.push(currentInstallment);
     }
@@ -23,16 +37,6 @@ class Loan {
     return installments
   }
 
-  static #basicFee = 2.10
-
-  static get basicFee() {
-    return this.#basicFee;
-  }
-
-  static set basicFee(newBasicFee) {
-
-    this.#basicFee = newBasicFee;
-  }
 }
 
 module.exports = Loan
