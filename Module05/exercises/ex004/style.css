@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue-50: #e3f2fd;
+  --blue-300: #0578a6;
+  --blue-500: #035373;
+  --blue-900: #032940;
+
+  --white: #f2f2f2;
+
+  --green-50: #e8f5e9;
+  --green-200: #a5d6a7;
+  --green-600: #43a047;
+  --green-700: #388e3c;
+
+  --red-50: #ffebee;
+  --red-200: #ef9a9a;
+  --red-400: #ff0043;
+  --red-900: #b71c1c;
+}
+
+body {
+  background-color: var(--blue-300);
+  color: var(--white);
+  font-family: "Ubuntu", sans-serif;
+}
+
+main {
+  display: block;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 1.5rem 2.5rem;
+  position: relative;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+section {
+  background-color: var(--white);
+  color: var(--blue-900);
+  margin-top: 2.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+}
+
+header {
+  padding: 2rem 0;
+}
+
+#create {
+  background-color: var(--green-600);
+  color: var(--white) ;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 0.875rem;
+  transition: 0.15s;
+}
+
+#create:hover{
+  background-color: var(--green-700);
+}
+
+form > input {
+  background-color: var(--blue-50);
+  border: 2px solid var(--blue-900);
+  border-radius: 0.5rem;
+  color: #000000;
+  display: block;
+  font-size: 0.875rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+  text-align: start;
+  width: 100%;
+}
+
+#newTransactionForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+  gap: 0.5rem;
+}
+
+#register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.error {
+  background-color: var(--red-400);
+}
+
+.success {
+  border-color: var(--blue-900) !important;
+  color: var(--blue-900) !important;
+}
+
+section > h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#transactions {
+  display: grid;
+  grid-template-columns: 15rem 15rem 15rem;
+  grid-row: 2.5rem;
+  gap: 0.5rem;
+  align-items: start;
+  justify-content: center;
+}
+
+.transaction {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.transaction > input {
+  background-color: var(--white);
+  border: 1px solid #33333350;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+  text-align: start;
+  width: 100%;
+}
+
+.put-btn {
+  background-color: var(--blue-300);
+  color: var(--white) ;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 0.5rem;
+  transition: 0.15s;
+}
+
+.put-btn:hover{
+  background-color: var(--blue-500);
+}
+
+.delete-btn {
+  background-color: var(--red-400);
+  color: var(--white) ;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 0.5rem;
+  transition: 0.15s;
+}
+
+.delete-btn:hover{
+  background-color: var(--red-900);
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.positive {
+  color: var(--green-600);
+}  
+
+.positive-card {
+  background-color: var(--green-200);
+}  
+
+.value {
+  font-weight: 600;
+  margin-top: 0.25rem;
+}  
+
+.negative {
+  color: var(--red-900);
+}  
+
+.negative-card {
+  background-color: var(--red-200);
+}  
+
+.date {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: end;
+}  

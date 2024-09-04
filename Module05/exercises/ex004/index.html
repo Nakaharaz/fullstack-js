@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transactions recorder</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <section id="register">
+        <div>
+          <h1>Welcome to transactions recorder!</h1>
+          <p>Your personal track program to save your transactions</p>
+        </div>
+
+        <form
+          id="newTransactionForm"
+          action="http://localhost:3000/articles"
+          method="post"
+        >
+          <label for="name">Transaction name:</label>
+          <input id="name" name="name" type="text" placeholder="Market" />
+          <label for="value">Value:</label>
+          <input
+            type="number"
+            name="value"
+            id="value"
+            placeholder="10"
+            step="0.1"
+          />
+          <label for="date">Date:</label>
+          <input type="date" name="date" id="date" />
+
+          <button type="submit" id="create">Register!</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Current balance: <span id="balance"></span></h2>
+        <div id="transactions"></div>
+      </section>
+      <script src="./index.js"></script>
+    </main>
+  </body>
+</html>
