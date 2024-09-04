@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POST requests with Javascript</title>
+  </head>
+  <body>
+    <main style="display: flex; gap: 4rem; margin: 1rem 2rem">
+      <form action="http://localhost:8087/articles" method="post">
+        <h2>Write an article!</h2>
+        <label for="title">Title:</label>
+        <br />
+        <input type="text" id="title" name="title" />
+        <br />
+        <label for="author">Author:</label>
+        <br />
+        <input type="text" id="author" name="author" />
+        <br />
+        <label for="content">Content:</label>
+        <br />
+        <textarea id="content" name="content" cols="30" rows="10"></textarea>
+        <br />
+        <button>Send</button>
+      </form>
+      <div>
+        <h2>Articles:</h2>
+        <section id="articles"></section>
+      </div>
+    </main>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

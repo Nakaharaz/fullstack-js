@@ -1,0 +1,34 @@
+{
+  "articles": [
+    {
+      "title": "Hello, world!",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam minus inventore voluptatem, eum repellat sed officiis aliquam",
+      "author": "Alan Turing",
+      "id": "1"
+    },
+    {
+      "title": "POST requests with Javascript",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam minus inventore voluptatem, eum repellat sed officiis aliquam",
+      "author": "Enzo Nakahara",
+      "id": "2"
+    },
+    {
+      "id": "59d9",
+      "title": "How to win the deep depression",
+      "author": "Enzo Nakahara",
+      "content": "asdsadsadasdsadas"
+    },
+    {
+      "id": "1397",
+      "title": "HAAHAHAHAHHAAHAHAHAHAHAHA",
+      "author": "Enzo Nakahara",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam minus inventore voluptatem, eum repellat sed officiis aliquamLorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam minus inventore voluptatem, eum repellat sed officiis aliquamLorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam minus inventore voluptatem, eum repellat sed officiis aliquam"
+    },
+    {
+      "id": "9652",
+      "title": "How to win the deep depression",
+      "author": "Enzo Nakahara",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam minus inventore voluptatem, eum repellat sed officiis aliquam"
+    }
+  ]
+}
