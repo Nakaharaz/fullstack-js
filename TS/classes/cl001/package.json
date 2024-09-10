@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "name": "cl002",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
