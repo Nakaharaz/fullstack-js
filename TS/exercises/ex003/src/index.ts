@@ -7,10 +7,22 @@ interface GitHubUser {
   repos_url: string
 }
 
+interface userRepos {
+  name: string
+  description: string
+  fork: boolean
+  stargazers_count: number
+}
+
+const registeredUsers: GitHubUser[] = [];
+
 async function fetchGitHubUser(username: string) {
   const response = await fetch(`https://api.github.com/users/${username}`)
     .then(res => res.json())
-    .catch(err => Promise.reject(err))
+
+  if (response.message === 'Not Found') {
+    return Promise.reject(`User not found!!`)
+  }
 
   const gitHubUser: GitHubUser = {
     id: response.id,
@@ -21,9 +33,82 @@ async function fetchGitHubUser(username: string) {
     repos_url: response.repos_url
   }
 
+  registeredUsers.push(gitHubUser)
+
+  console.log(`Hello ${gitHubUser.name}! It's nice to see you here!\nI see that you have ${gitHubUser.public_repos} public repos!!! That's awesome man!`)
+
+
   return gitHubUser
 }
 
-const enzo = fetchGitHubUser('nakaharaz').then((res) => res.login)
+async function showUserRepos(user: GitHubUser) {
+  const response = await fetch(user.repos_url).then(res => res.json())
 
-console.log(enzo)
+  if (response.message === 'Not Found') {
+    return Promise.reject("This user don't have any public repo!")
+  }
+
+  const topThreeRepos: userRepos[] = []
+
+  response.splice(0, 3).forEach((repo: any) => {
+    const userRepo: userRepos = {
+      description: repo.description,
+      fork: repo.fork,
+      name: repo.name,
+      stargazers_count: repo.stargazers_count
+    }
+
+    topThreeRepos.push(userRepo)
+  });
+
+  return topThreeRepos
+}
+
+function showAllUsers() {
+  let list = 'Users:\n'
+
+  registeredUsers.forEach((user: GitHubUser, index) => {
+    list += `
+    ID: ${user.id}
+    Name: ${user.name}
+    Bio: ${user.bio}
+    Repos count: ${user.public_repos}
+    `
+  })
+
+  console.log(list)
+}
+
+function calcTotalPublicRepos() {
+  let total = 0
+
+  registeredUsers.forEach(user => total += user.public_repos)
+
+  console.log(`Adding the number of repositories of ${registeredUsers.length} users, the result is = ${total}`)
+}
+
+function showTopFive() {
+  const sortedUsers = [...registeredUsers.slice(0,4)]
+
+  sortedUsers.sort((a, b) => b.public_repos - a.public_repos)
+
+  let list = 'Here are the top 5 users with more public repositories!:\n'
+
+  sortedUsers.forEach((user: GitHubUser, index) => {
+    list += `
+    ID: ${user.id}
+    Name: ${user.name}
+    Bio: ${user.bio}
+    Repos count: ${user.public_repos}
+    `
+  })
+
+  console.log(list)
+}
+
+Promise.all([fetchGitHubUser('gustavoguanabara'), fetchGitHubUser('nakaharaz'), fetchGitHubUser('isaacpontes')])
+  .then(res => {
+    showAllUsers()
+    calcTotalPublicRepos()
+    showTopFive()
+  })
